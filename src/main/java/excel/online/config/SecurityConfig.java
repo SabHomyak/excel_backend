@@ -17,50 +17,6 @@ import org.springframework.web.cors.CorsConfiguration;
 
 import java.util.Arrays;
 
-//@EnableWebSecurity
-//public class SecurityConfig extends WebSecurityConfigurerAdapter {
-//    private UserService userService;
-//
-//    @Autowired
-//    public void setUserService(UserService userService) {
-//        this.userService = userService;
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .cors()
-//                .and()
-//                .csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/api/excel/**").authenticated()
-//                .and()
-//                .httpBasic();
-////                .authorizeRequests()
-////                .antMatchers("/authenticated/**").authenticated()
-////                .antMatchers("/only_for_admins/**").hasAnyRole("admin")
-////                .antMatchers("/read_profile/**").hasAnyAuthority("READ_PROFILE")
-////                .and()
-////                .formLogin()
-////                .loginProcessingUrl("/myLoginnnnn")
-////                .and()
-////                .logout()
-////                .logoutSuccessUrl("/");
-//    }
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//
-//    @Bean
-//    public DaoAuthenticationProvider daoAuthenticationProvider() {
-//        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-//        authenticationProvider.setPasswordEncoder(passwordEncoder());
-//        authenticationProvider.setUserDetailsService(userService);
-//        return authenticationProvider;
-//    }
-//}
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private UserService userService;
@@ -73,16 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-//                .addFilterBefore(corsFilter(), SessionManagementFilter.class)
-//                .cors().configurationSource(request -> {
-//            CorsConfiguration cors = new CorsConfiguration();
-//            cors.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-//            cors.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "OPTIONS"));
-//            cors.setAllowedHeaders(Arrays.asList("*"));
-//            return cors;
-//        }).and()
-//                .cors()
-//                .and()
                 .csrf().disable()
                 .httpBasic();
     }
